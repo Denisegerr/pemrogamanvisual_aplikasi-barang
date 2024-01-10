@@ -1,0 +1,109 @@
+object Form3: TForm3
+  Left = 438
+  Height = 342
+  Top = 258
+  Width = 529
+  Caption = 'Data Master'
+  ClientHeight = 342
+  ClientWidth = 529
+  object Label1: TLabel
+    Left = 120
+    Height = 32
+    Top = 16
+    Width = 244
+    Caption = 'Aplikasi Data Barang'
+    Font.CharSet = ANSI_CHARSET
+    Font.Height = -24
+    Font.Name = 'Segoe UI Black'
+    Font.Pitch = fpVariable
+    Font.Quality = fqDraft
+    Font.Style = [fsBold]
+    ParentColor = False
+    ParentFont = False
+    OnClick = Label1Click
+  end
+  object DBGrid1: TDBGrid
+    Left = 80
+    Height = 146
+    Top = 112
+    Width = 376
+    Color = clWindow
+    Columns = <>
+    DataSource = DataSource1
+    TabOrder = 0
+  end
+  object DBNavigator1: TDBNavigator
+    Left = 80
+    Height = 33
+    Top = 272
+    Width = 352
+    BevelOuter = bvNone
+    ChildSizing.EnlargeHorizontal = crsScaleChilds
+    ChildSizing.EnlargeVertical = crsScaleChilds
+    ChildSizing.ShrinkHorizontal = crsScaleChilds
+    ChildSizing.ShrinkVertical = crsScaleChilds
+    ChildSizing.Layout = cclLeftToRightThenTopToBottom
+    ChildSizing.ControlsPerLine = 100
+    ClientHeight = 33
+    ClientWidth = 352
+    Options = []
+    TabOrder = 1
+  end
+  object Button1: TButton
+    Left = 80
+    Height = 25
+    Top = 72
+    Width = 75
+    Caption = 'Tambah'
+    TabOrder = 2
+  end
+  object Button2: TButton
+    Left = 160
+    Height = 25
+    Top = 72
+    Width = 75
+    Caption = 'Ubah'
+    TabOrder = 3
+  end
+  object Button3: TButton
+    Left = 239
+    Height = 25
+    Top = 72
+    Width = 75
+    Caption = 'Hapus'
+    TabOrder = 4
+  end
+  object DataSource1: TDataSource
+    DataSet = ZQuery1
+    Left = 272
+    Top = 208
+  end
+  object ZConnection1: TZConnection
+    ControlsCodePage = cCP_UTF8
+    AutoEncodeStrings = True
+    Properties.Strings = (
+      'AutoEncodeStrings=ON'
+      'controls_cp=CP_UTF8'
+    )
+    Connected = True
+    AfterConnect = ZConnection1AfterConnect
+    HostName = 'localhost'
+    Port = 3306
+    Database = 'apliksi_data_barang'
+    User = 'root'
+    Protocol = 'mysql-5'
+    LibraryLocation = 'C:\mysql\mysql-5.7.44-winx64\lib\libmysql.dll'
+    Left = 120
+    Top = 208
+  end
+  object ZQuery1: TZQuery
+    Connection = ZConnection1
+    Active = True
+    SQL.Strings = (
+      'SELECT*FROM data_barang'
+    )
+    Params = <>
+    Left = 200
+    Top = 208
+  end
+end
